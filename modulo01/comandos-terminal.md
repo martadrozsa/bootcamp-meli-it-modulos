@@ -37,7 +37,7 @@ rm -rf nome
 ```
 ### Movimentar (renomear) arquivos e diretórios
 ```shell
-mv
+mv nome.text novo-nome.txt
 ```
 ### Ver  o caminho do diretório que esto
 ```shell
