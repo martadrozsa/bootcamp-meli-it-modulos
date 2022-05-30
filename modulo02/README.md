@@ -273,7 +273,7 @@ Nos permite trabalhar com valores e formatá-los
 #### WriteString()
 - A função writeString(z Writer, s string) que recebe uma string e um Writer, escreve o conteúdo de s para w, que aceita um slice de bytes
 
-## Módulo 2 - Introdução ao GO Bases - Aula 2 de maio (tarde)
+## Módulo 2 - Introdução ao GO Bases - Aula 24 de maio (tarde)
 - Compreender e utilizar ponteiros em Go
 - Compreender e utilizar Go Routines
 - Compreender e utilizar canais em Go
@@ -318,3 +318,58 @@ p3 := &p1
 ```shell
 c := make(chan int)
 ```
+
+## Módulo 2 — Introdução ao GO Bases — Aula 25 de maio (tarde)
+- Conhecer o que é "panic" e como criar a sua estrutura
+- Criar "panics"
+- Conhecer casos de uso do "panic"
+- Conhecer "defer" e "recover" e compreender a sua utilidade e funcinamento
+- Implementar "defer" e "recover" para um melhor tratamento do "panic"
+- Adquira um primeiro conhecimento introdutório sobre o pacote "context"
+
+### Panic
+- É uma interrupção da execução do nosso programa, com a indicação de que algo deu errado inesperadamente
+
+### Defer e Recover
+- Com as instruções internas 'defer' e 'recover' podemos controlar os efeitos de um panic e impedir que nosso programa termine involuntariamente
+- Defer e Recover são funções projetadas para previnir ou controlar a natureza destrutiva de um panic
+
+#### Defer
+- É uma instrução incorporada no GO que nos permite adiar a execução de determinadas funções e garantir que sejam executadas antes da conclusão da execução de um programa
+
+#### Recover
+- É uma função integrada que permite interceptar um pânico e impedir que ele termine aexecução do programa de maneira inesperada ou indesejada
+
+### Package Context
+- Serve para definir um contexto que pode ser passado pelo código para que as diferentes partes decidam como reagir a ele
+
+#### Context type
+- É uma interface que define os métodos:
+
+```shell
+type Context interface {
+  Deadline() (deadline time.Time, ok bool)
+  Done() <- chan struct{}
+  Err() error
+  Value(key interface{}) interface{} 
+}
+```
+
+É convenção ao definir uma função que recebe um contexto que ela seja o primeiro argumento e seja chamada de "ctx"
+
+```shell
+func funcaoComContexto(ctx context.Context, ...args) {
+  ...
+}
+```
+
+#### .Background()
+- Nos permite criar um context vazio
+
+#### .WithValue()
+- A função .WithValue(ctx context.Context, key, val interface{}) recebe como argumentos um contexto pai e um par "chave -> valor"
+- Retorna um novo contexto
+
+#### .WithDeadline()
+- A função .WithDealine(ctx context.Context, d time.Time) recebe como argumentos um contexto pai e uma data
+- Retorna um novo contexto e uma função para cancelar manualmente o contexto
