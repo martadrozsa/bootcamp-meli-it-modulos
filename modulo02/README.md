@@ -320,6 +320,20 @@ c := make(chan int)
 ```
 
 ## Módulo 2 — Introdução ao GO Bases — Aula 25 de maio (tarde)
+- Entender porque é importante implementar o tratamento de erros adequados em nosso código
+- Saber o que é um erro no Go e suas diferenças com outras linguagens
+- Saber como criar erros personalizados e aplicá-los na prática
+- Conhecer, entender e usar corretamente as funções do pacote "errors"
+- Entender a utilidade dos retornos de valor do tipo "erro" em funções que retornam mais de um valor e realizar as validações desses erros corretamente
+
+
+
+
+
+
+
+
+## Módulo 2 — Introdução ao GO Bases — Aula 26 de maio (tarde)
 - Conhecer o que é "panic" e como criar a sua estrutura
 - Criar "panics"
 - Conhecer casos de uso do "panic"
